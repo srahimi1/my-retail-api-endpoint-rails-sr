@@ -1,7 +1,6 @@
 class RedisInteractions
 
 	def set_initial_price(id)
-		puts "in RedisInteractions set_initial_price"
 		output = "pass"
 		begin
 			$redis.setnx("product_#{id}_value", "#{100 + rand(300)}")
@@ -13,7 +12,6 @@ class RedisInteractions
 	end # end set_initial_price
 
 	def get_price(id)
-		puts "in RedisInteractions get_price"
 		output = ""
 		begin
 			value = $redis.get("product_#{id}_value")
@@ -22,7 +20,6 @@ class RedisInteractions
 		rescue => e
             output = e.message
         end # end begin rescue
-		puts "in RedisInteractions get_price, output is #{output} and #{output.inspect}"
 		output
 	end # end get_price
 
