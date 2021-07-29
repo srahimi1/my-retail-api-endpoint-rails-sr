@@ -7,7 +7,9 @@ class ProductsController < ApplicationController
 
 	def show
         id = params[:id]
+        puts "in controller show, id is: #{id}"
         @product.get_from_api(id)
+        puts "in controller show, product after is #{@product} and #{@product.inspect}"
         render json: @product
 	end # end show
 

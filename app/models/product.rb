@@ -20,6 +20,7 @@ class Product
 	end # end product_reset
 
 	def get_from_api(id)
+        puts "in get_from_api in products model top"
         product_reset
 		@id = id
 		uri = ENV['REMOTE_API_URI_1_1'] + id + ENV['REMOTE_API_URI_1_2']
@@ -30,6 +31,7 @@ class Product
         end # end begin rescue
         if net_response.present? && @errorMsg.blank?
         	hashed = JSON.parse(net_response)
+        	puts "in get_from_api in products model middle, hashed is: #{hashed}"
         	begin
         		@product_name = hashed["product"]["item"]["product_description"]["title"]
         		@product_description = hashed["product"]["item"]["product_description"]["downstream_description"]
@@ -37,6 +39,7 @@ class Product
         		# this is only for demonstration purposes to set redis db with test data to retrieve later
         		@redis_interactions.set_intial_price(@id)
         		@current_price = @redis_interactions.get_price(@id)
+        		puts "@current_price is #{@current_price} and #{@current_price.inspect}"
         		# end of demonstration code
         	rescue => e
         		@errorMsg = get_error_message(2,e)
