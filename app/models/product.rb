@@ -31,7 +31,12 @@ class Product
         end # end begin rescue
         if net_response.present? && @errorMsg.blank?
         	hashed = JSON.parse(net_response)
+        	puts
         	puts "in get_from_api in products model middle, hashed is: #{hashed}"
+        	puts
+        	puts hashed.inspect
+        	puts
+        	puts
         	begin
         		@product_name = hashed["product"]["item"]["product_description"]["title"]
         		@product_description = hashed["product"]["item"]["product_description"]["downstream_description"]
