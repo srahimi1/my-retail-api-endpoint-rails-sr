@@ -14,7 +14,7 @@ class RedisInteractions
 
 	def get_price(id)
 		puts "in RedisInteractions get_price"
-		output
+		output = ""
 		begin
 			value = $redis.get("product_#{id}_value")
         	cc = $redis.get("product_#{id}_currency_code")
