@@ -42,7 +42,7 @@ class Product
         		@product_description = hashed["product"]["item"]["product_description"]["downstream_description"]
         		@product_image_url = hashed["product"]["item"]["enrichment"]["images"][0]["base_url"] + hashed["product"]["item"]["enrichment"]["images"][0]["primary"]
         		# this is only for demonstration purposes to set redis db with test data to retrieve later
-        		@redis_interactions.set_intial_price(@id)
+        		@redis_interactions.set_initial_price(@id)
         		@current_price = @redis_interactions.get_price(@id)
         		puts "@current_price is #{@current_price} and #{@current_price.inspect}"
         		# end of demonstration code
