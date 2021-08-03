@@ -1,5 +1,7 @@
 # my-retail-api-endpoint-rails-sr
 
+- Ruby, Rails, Redis
+
 This server-side code is a back-end api service written in Ruby and using the Rails framework. It serves to respond to api requests to retrieve data or update data for products in myRetail's products collection. 
 
 Details of the code include:
