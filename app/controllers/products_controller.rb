@@ -5,11 +5,11 @@ class ProductsController < ApplicationController
         @current_price = CurrentPrice.new("","")
     end # end initialize
 
-	def show
+    def show
         id = params[:id]
         @product.get_from_api(id)
         render json: @product
-	end # end show
+    end # end show
 
     def edit
         id = params[:id]
